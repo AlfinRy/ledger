@@ -220,7 +220,7 @@
     transition: transform var(--duration-state) var(--ease-out);
   }
 
-  .skip-link:focus {
+  .skip-link:focus-visible {
     transform: translateY(0);
   }
 }
