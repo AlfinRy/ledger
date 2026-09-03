@@ -1,6 +1,6 @@
 # PRD: "The Ledger" — A WebMCP Noir Mystery
 **For:** OpenAI WebMCP Challenge 2026 (deadline 3 Sept 13:00 PT)
-**Author:** Alfin Reynaldi
+**Author:** alfinry
 **Stack:** TanStack Start (React) + TanStack DB/Server Functions, deployed on Vercel
 **Pattern reference:** Netlify's "The Archive" demo (architecture pattern only — story, evidence, tools, and cipher below are original, not copied)
 

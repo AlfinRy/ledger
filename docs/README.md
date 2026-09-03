@@ -156,5 +156,5 @@ vercel.json                Deployment preset and security headers
 <br>
 
 <div align="center">
-  <strong>Built by <a href="https://github.com/AlfinRy">Alfin Reynaldi</a> for the OpenAI WebMCP Challenge 2026.</strong>
+  <strong>Built by <a href="https://github.com/AlfinRy">alfinry</a> for the OpenAI WebMCP Challenge 2026.</strong>
 </div>
