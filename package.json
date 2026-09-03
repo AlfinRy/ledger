@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "verify:client": "node scripts/verify-client-bundle.mjs",
+    "check": "npm run typecheck && npm test && npm run build && npm run verify:client && npm run test:e2e"
   },
   "dependencies": {
     "@tanstack/react-router": "latest",
@@ -24,6 +26,7 @@
     "zod": "^4.5.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.62.1",
     "@tanstack/router-cli": "^1.132.0",
     "@types/node": "^22.10.2",

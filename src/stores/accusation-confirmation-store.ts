@@ -41,6 +41,10 @@ export const accusationConfirmationStore = {
   },
 
   request(accusation: PendingAccusation, signal: AbortSignal) {
+    if (signal.aborted) {
+      return Promise.reject(new DOMException('Accusation cancelled.', 'AbortError'))
+    }
+
     if (pendingRequest) {
       return Promise.reject(
         new Error('Another accusation is already awaiting confirmation.'),

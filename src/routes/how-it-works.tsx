@@ -77,7 +77,12 @@ function HowItWorksPage() {
             visible human confirmation before the server evaluates it.
           </p>
         </div>
-        <div className="tool-table-wrap">
+        <div
+          className="tool-table-wrap"
+          tabIndex={0}
+          role="region"
+          aria-label="WebMCP tool chain table"
+        >
           <table>
             <thead>
               <tr>
