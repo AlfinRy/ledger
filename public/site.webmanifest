@@ -1,0 +1,21 @@
+{
+  "name": "The Ledger: A WebMCP Noir Mystery",
+  "short_name": "The Ledger",
+  "description": "Solve the Vic Marlowe case with a human detective and a WebMCP-connected agent.",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#111415",
+  "background_color": "#111415",
+  "display": "standalone",
+  "start_url": "/"
+}

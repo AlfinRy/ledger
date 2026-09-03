@@ -23,7 +23,28 @@ export const Route = createRootRoute({
       { name: 'theme-color', content: '#111415' },
       { title: 'The Ledger | A WebMCP Noir Mystery' },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [
+      { rel: 'stylesheet', href: appCss },
+      { rel: 'icon', href: '/icons/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/icons/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/icons/favicon-16x16.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/icons/apple-touch-icon.png',
+      },
+      { rel: 'manifest', href: '/site.webmanifest' },
+    ],
   }),
   shellComponent: RootDocument,
 })
@@ -41,7 +62,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <header className="site-header">
           <Link className="wordmark" to="/" aria-label="The Ledger case file">
             <span className="wordmark-mark" aria-hidden="true">
-              TL
+              <img
+                src="/brand/hat.png"
+                width="580"
+                height="386"
+                alt=""
+              />
             </span>
             <span>
               <strong>The Ledger</strong>
