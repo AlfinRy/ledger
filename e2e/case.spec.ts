@@ -38,6 +38,7 @@ test.beforeEach(async ({ page }) => {
   await installWebMcpMock(page)
   await page.goto('/')
   await expect(page.getByText('Archive connected')).toBeVisible()
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
 })
 
 test('explains the collaboration model and registers five tools', async ({

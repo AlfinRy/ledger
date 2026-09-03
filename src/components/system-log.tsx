@@ -44,11 +44,13 @@ export function SystemLog() {
     systemLogStore.getSnapshot,
     systemLogStore.getServerSnapshot,
   )
-  const endRef = useRef<HTMLDivElement>(null)
+  const streamRef = useRef<HTMLDivElement>(null)
   const caseClosed = entries.some((entry) => entry.archiveStatus === 'closed')
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    const stream = streamRef.current
+    if (!stream || entries.length === 0) return
+    stream.scrollTo({ top: stream.scrollHeight, behavior: 'smooth' })
   }, [entries])
 
   return (
@@ -80,6 +82,7 @@ export function SystemLog() {
 
       <div
         className="log-stream"
+        ref={streamRef}
         role="log"
         aria-live="polite"
         aria-relevant="additions text"
@@ -128,7 +131,6 @@ export function SystemLog() {
             ))}
           </ol>
         )}
-        <div ref={endRef} />
       </div>
     </section>
   )
