@@ -16,3 +16,5 @@ todos.json
 /test-results/
 /playwright-report/
 /blob-report/
+
+.vercel
