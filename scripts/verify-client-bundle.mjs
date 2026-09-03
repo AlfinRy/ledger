@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-const assetsDirectory = join(process.cwd(), '.output', 'public', 'assets')
+const assetsDirectory = join(process.cwd(), 'dist', 'client', 'assets')
 const forbiddenCaseData = [
   'Arlene Voss',
   'tab_open_past_alibi',

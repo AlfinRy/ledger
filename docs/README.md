@@ -14,15 +14,15 @@
   </p>
 
   <p>
-    <a href="https://ledger-1947.vercel.app"><strong>Open the live case</strong></a>
+    <a href="https://ledger-1947.reys.workers.dev"><strong>Open the live case</strong></a>
     &nbsp;·&nbsp;
-    <a href="https://ledger-1947.vercel.app/how-it-works">Read how it works</a>
+    <a href="https://ledger-1947.reys.workers.dev/how-it-works">Read how it works</a>
   </p>
 </div>
 
 <br>
 
-<a href="https://ledger-1947.vercel.app">
+<a href="https://ledger-1947.reys.workers.dev">
   <img src="../public/readme/case-file.webp" alt="The Ledger case file showing the Vic Marlowe investigation, the evidence desk, and the connected WebMCP archive" width="1440">
 </a>
 
@@ -43,7 +43,7 @@ A shared **System Log** records every tool name, argument set, result, and evide
 
 ## Open the case
 
-1. Visit **[ledger-1947.vercel.app](https://ledger-1947.vercel.app)** in a WebMCP-capable browser.
+1. Visit **[ledger-1947.reys.workers.dev](https://ledger-1947.reys.workers.dev)** in a WebMCP-capable browser.
 2. Inspect all three physical evidence items before asking the agent to investigate.
 3. Copy the prepared agent prompt from the right-hand console.
 4. Answer the agent with exact details from the evidence.
@@ -91,7 +91,7 @@ The mystery is designed so that viewing the client bundle does not reveal the an
 - **Declared intent:** the first four tools use `readOnlyHint`; the terminal tool is explicitly mutating.
 - **Human in the loop:** `accuse_suspect` opens a native confirmation dialog before evaluation.
 - **Bounded lifecycle:** an `AbortSignal` unregisters all five tools when the route unmounts.
-- **Browser policy:** Vercel sends `Permissions-Policy: tools=(self)` and `Origin-Agent-Cluster: ?1`.
+- **Browser policy:** the Worker sends `Permissions-Policy: tools=(self)` and `Origin-Agent-Cluster: ?1`.
 - **Leakage check:** the production client assets are scanned for prohibited solution strings.
 
 ## Run locally
@@ -121,7 +121,7 @@ npm run check
 | `npm test` | 6 Vitest tests for archive logic and accusation rules |
 | `npm run build` | Production client and server bundles |
 | `npm run verify:client` | Client-bundle solution leakage scan |
-| `npm run test:e2e` | 12 Playwright tests across desktop and mobile Chromium, including Axe A/AA checks |
+| `npm run test:e2e` | 14 Playwright tests across desktop and mobile Chromium, including Axe A/AA and security-header checks |
 
 ## Project map
 
@@ -132,17 +132,18 @@ src/
 ├── routes/               Case file and architecture brief
 ├── server/               Validated tools and server-only case records
 ├── stores/               Observable log and confirmation state
+├── server-entry.ts       Streaming Worker response and security headers
 └── styles.css            Noir workspace design system
 
 e2e/                      Playwright interaction and accessibility tests
 scripts/                   Client-bundle leakage verification
 public/                    Brand, favicon, manifest, and README assets
-vercel.json                Deployment preset and security headers
+wrangler.jsonc             Workers runtime and observability configuration
 ```
 
 ## Built with
 
-[**TanStack Start**](https://tanstack.com/start) · [**React 19**](https://react.dev) · **TypeScript** · [**Zod**](https://zod.dev) · [**Vitest**](https://vitest.dev) · [**Playwright**](https://playwright.dev) · [**Axe**](https://github.com/dequelabs/axe-core) · [**Vercel**](https://vercel.com)
+[**TanStack Start**](https://tanstack.com/start) · [**React 19**](https://react.dev) · **TypeScript** · [**Zod**](https://zod.dev) · [**Vitest**](https://vitest.dev) · [**Playwright**](https://playwright.dev) · [**Axe**](https://github.com/dequelabs/axe-core) · [**Cloudflare Workers**](https://workers.cloudflare.com)
 
 <details>
 <summary><strong>Maintainer documents</strong></summary>

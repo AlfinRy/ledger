@@ -1,7 +1,7 @@
 # PRD: "The Ledger" — A WebMCP Noir Mystery
 **For:** OpenAI WebMCP Challenge 2026 (deadline 3 Sept 13:00 PT)
 **Author:** alfinry
-**Stack:** TanStack Start (React) + TanStack DB/Server Functions, deployed on Vercel
+**Stack:** TanStack Start (React) + TanStack DB/Server Functions, deployed on Cloudflare Workers
 **Pattern reference:** Netlify's "The Archive" demo (architecture pattern only — story, evidence, tools, and cipher below are original, not copied)
 
 ---
@@ -137,7 +137,7 @@ Every tool's `execute` calls its matching server function and also pushes an ent
 
 ## 6. Security / Judging-Criteria Checklist
 
-- [ ] `Origin-Agent-Cluster: ?1` and `Permissions-Policy: tools=(self)` headers set (Vercel: via `vercel.json` headers, or middleware)
+- [ ] `Origin-Agent-Cluster: ?1` and `Permissions-Policy: tools=(self)` headers set by the Worker server entry
 - [ ] Solution and full case data never present in client JS bundle — verify via `view-source` / build output before submitting
 - [ ] `readOnlyHint: true` on tools 1–4, `readOnlyHint: false` on `accuse_suspect`
 - [ ] `accuse_suspect` is the only state-mutating tool and is clearly the "final" action — consider a confirm step in the UI when it's called, so a human watching sees the accusation before it locks in
@@ -149,7 +149,7 @@ Every tool's `execute` calls its matching server function and also pushes an ent
 
 | Time block | Task |
 |---|---|
-| Hour 0–1 | `npx create-tsrouter-app` (TanStack Start), deploy empty shell to Vercel immediately (get the URL working end to end first) |
+| Hour 0–1 | `npx create-tsrouter-app` (TanStack Start), deploy empty shell to Cloudflare Workers immediately (get the URL working end to end first) |
 | Hour 1–3 | Build case data model + 5 server functions, unit-test the solve chain manually (no UI yet) |
 | Hour 3–5 | Build `use-webmcp-tools.ts`, register tools, verify via Model Context Tool Inspector extension or ChatGPT desktop |
 | Hour 5–8 | Build evidence UI (photo, pawn ticket, ledger page) + System Log panel |
